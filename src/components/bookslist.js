@@ -18,6 +18,7 @@ BooksList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
     }),
   ).isRequired,
   removeBook: PropTypes.func.isRequired,

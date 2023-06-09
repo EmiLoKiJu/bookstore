@@ -8,21 +8,25 @@ const BooksLogic = () => {
     {
       id: uuidv4(),
       title: 'Book 1',
+      category: 'Gabriel Rozas',
     },
     {
       id: uuidv4(),
       title: 'Book 2',
+      category: 'Gabriel Rozas',
     },
     {
       id: uuidv4(),
       title: 'Book 3',
+      category: 'Gabriel Rozas',
     },
   ]);
 
-  const addBookFunc = (title) => {
+  const addBookFunc = (title, category) => {
     const newBook = {
       id: uuidv4(),
       title,
+      category,
     };
     setBooks([...books, newBook]);
   };

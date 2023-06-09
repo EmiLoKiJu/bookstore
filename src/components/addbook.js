@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 
 const AddBook = ({ addBookFunc }) => {
   const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
   const [message, setMessage] = useState(''); // <span> message if empty book value given
+
+  const categoriesSelection = ['Gabriel Rozas', 'Not Gabriel Rozas'];
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -11,13 +18,14 @@ const AddBook = ({ addBookFunc }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title.trim()) {
-      addBookFunc(title); // Function called to create book
+    if (title.trim() && category) {
+      addBookFunc(title, category); // Function called to create book
       setTitle(''); // Resets the form
       setMessage('');
-    } else {
-      setMessage('Please add item.'); // Empty book value
-    }
+      setCategory('');
+    } else if (!category && !title.trim()) setMessage('Please add item and category.');
+    else if (!title.trim()) setMessage('Please add item.');
+    else setMessage('Please add category.');
   };
 
   return (
@@ -29,6 +37,17 @@ const AddBook = ({ addBookFunc }) => {
           value={title}
           onChange={handleChange}
         />
+        <select
+          value={category}
+          onChange={handleCategoryChange}
+        >
+          <option value="">Select Category</option>
+          {categoriesSelection.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
         <button type="submit">Add Book</button>
       </form>
       <span>{message}</span>
