@@ -10,6 +10,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
+  - [Live Demo](#live-demo)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
@@ -47,6 +48,10 @@ React
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
+
+### Live Demo
+
+Feel free to check the live demo (deployed from FBranch): [link](https://bookstore-w6le.onrender.com/)
 
 ### Prerequisites
 
