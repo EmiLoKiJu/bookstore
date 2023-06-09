@@ -7,6 +7,7 @@ import {
 
 import './App.css';
 import BooksLogic from './components/bookslogic';
+import Categories from './components/categories';
 
 function Layout() {
   return (
@@ -29,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<div><BooksLogic /></div>} />
-          <Route path="categories" element={<div>Gabriel Rozas</div>} />
+          <Route path="categories" element={<div><Categories /></div>} />
           <Route path="*" element={<div>Error 404: Page not found</div>} />
         </Route>
       </Routes>
