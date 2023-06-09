@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types';
 import Book from './book';
 
-const BooksList = ({ removeBook, books}) => {
-  return (
-    <ul>
-      {books.map((book) => (
-        <Book
-          key={book.id}
-          book={book}
-          removeBook={removeBook}
-        />
-      ))}
-    </ul>
-  );
-};
+const BooksList = ({ removeBook, books }) => (
+  <ul>
+    {books.map((book) => (
+      <Book
+        key={book.id}
+        book={book}
+        removeBook={removeBook}
+      />
+    ))}
+  </ul>
+);
 
 BooksList.propTypes = {
   books: PropTypes.arrayOf(

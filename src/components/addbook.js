@@ -18,7 +18,7 @@ const AddBook = ({ addBookFunc }) => {
     } else {
       setMessage('Please add item.'); // Empty book value
     }
-  }
+  };
 
   return (
     <>
@@ -34,7 +34,7 @@ const AddBook = ({ addBookFunc }) => {
       <span>{message}</span>
     </>
   );
-}
+};
 
 AddBook.propTypes = {
   addBookFunc: PropTypes.func.isRequired,

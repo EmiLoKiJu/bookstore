@@ -28,7 +28,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<div><BooksLogic/></div>} />
+          <Route index element={<div><BooksLogic /></div>} />
           <Route path="categories" element={<div>Gabriel Rozas</div>} />
           <Route path="*" element={<div>Error 404: Page not found</div>} />
         </Route>
