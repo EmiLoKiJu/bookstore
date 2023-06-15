@@ -4,11 +4,13 @@ import {
   Route,
   Outlet,
 } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import './App.css';
 import Categories from './components/categories';
 import BooksList from './components/bookslist';
 import AddBook from './components/addbook';
+import { getBooks } from './redux/books/booksSlice';
 
 function Layout() {
   return (
@@ -26,6 +28,22 @@ function Layout() {
 }
 
 function App() {
+  const { isLoading } = useSelector((store) => store.books);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
   return (
     <BrowserRouter>
       <Routes>

@@ -27,13 +27,17 @@ h2 {
   justify-content: space-between;
 }
 
-.dgrid3x1 {
+.dgrid4x1 {
   margin-left: 8%;
-  width: 50%;
+  width: 75%;
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 3fr 3fr 2fr 1fr;
 }
 
 .mr10 {
   margin-right: 10%;
+}
+
+.addBook {
+  margin: 32px 6%;
 }
