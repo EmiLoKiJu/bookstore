@@ -6,8 +6,9 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
-import BooksLogic from './components/bookslogic';
 import Categories from './components/categories';
+import BooksList from './components/bookslist';
+import AddBook from './components/addbook';
 
 function Layout() {
   return (
@@ -19,7 +20,7 @@ function Layout() {
           <h2 className="h2-class"><a href="./categories">Author</a></h2>
         </div>
       </div>
-      <div className="dflex spacebetween"><Outlet /></div>
+      <div><Outlet /></div>
     </div>
   );
 }
@@ -29,7 +30,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<div><BooksLogic /></div>} />
+          <Route
+            index
+            element={(
+              <div>
+                <BooksList />
+                <AddBook />
+              </div>
+            )}
+          />
           <Route path="categories" element={<div><Categories /></div>} />
           <Route path="*" element={<div>Error 404: Page not found</div>} />
         </Route>
