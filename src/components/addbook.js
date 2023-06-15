@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/booksSlice';
 
-const AddBook = ({ addBookFunc }) => {
+const AddBook = () => {
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState(''); // <span> message if empty book value given
@@ -19,7 +23,12 @@ const AddBook = ({ addBookFunc }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim() && category) {
-      addBookFunc(title, category); // Function called to create book
+      const newBook = {
+        id: uuidv4(),
+        title,
+        category,
+      };
+      dispatch(addBook(newBook)); // Function called to create book
       setTitle(''); // Resets the form
       setMessage('');
       setCategory('');
@@ -53,10 +62,6 @@ const AddBook = ({ addBookFunc }) => {
       <span>{message}</span>
     </>
   );
-};
-
-AddBook.propTypes = {
-  addBookFunc: PropTypes.func.isRequired,
 };
 
 export default AddBook;

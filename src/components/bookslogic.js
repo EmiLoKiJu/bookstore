@@ -6,39 +6,21 @@ import BooksList from './bookslist';
 const BooksLogic = () => {
   const [books, setBooks] = useState([
     {
+      title: 'romeo y julieta',
+      category: 'william shakespire',
       id: uuidv4(),
-      title: 'Book 1',
-      category: 'Gabriel Rozas',
     },
     {
+      title: 'la bella y la bestia',
+      category: 'el mismisimo',
       id: uuidv4(),
-      title: 'Book 2',
-      category: 'Gabriel Rozas',
-    },
-    {
-      id: uuidv4(),
-      title: 'Book 3',
-      category: 'Gabriel Rozas',
     },
   ]);
 
-  const addBookFunc = (title, category) => {
-    const newBook = {
-      id: uuidv4(),
-      title,
-      category,
-    };
-    setBooks([...books, newBook]);
-  };
-
-  const removeBook = (id) => {
-    setBooks([...books.filter((book) => book.id !== id)]);
-  };
-
   return (
     <>
-      <BooksList books={books} removeBook={removeBook} />
-      <AddBook addBookFunc={addBookFunc} />
+      <BooksList books={books} />
+      <AddBook setBooks={setBooks} />
     </>
   );
 };

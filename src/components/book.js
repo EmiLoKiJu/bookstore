@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { removeBook } from '../redux/books/booksSlice';
 
-const Book = ({ book, removeBook }) => (
+const Book = ({ book }) => (
   <li>
     <div>
       {book.title}
@@ -18,7 +19,6 @@ Book.propTypes = {
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
   }).isRequired,
-  removeBook: PropTypes.func.isRequired,
 };
 
 export default Book;
