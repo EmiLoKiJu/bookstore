@@ -1,17 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 
-const initialstateforthis = [
-  {
-    title: 'romeo y julieta',
-    category: 'william shakespire',
-    id: uuidv4(),
-  },
-  {
-    title: 'la bella y la bestia',
-    category: 'el mismisimo',
-    id: uuidv4(),
-  }];
+const initialstateforthis = [];
 
 const booksSlice = createSlice({
   name: 'books',
