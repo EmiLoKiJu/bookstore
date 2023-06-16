@@ -36,6 +36,7 @@ const AddBook = () => {
       };
       dispatch(addBookToAPI(newBook)); // Function called to create book
       setTitle(''); // Resets the form
+      setAuthor('');
       setMessage('');
       setCategory('');
     } else if (!category && !title.trim()) setMessage('Please add item and category.');
