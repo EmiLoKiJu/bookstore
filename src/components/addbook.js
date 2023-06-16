@@ -45,15 +45,19 @@ const AddBook = () => {
 
   return (
     <>
+      <span className="spanline3 dflex" />
+      <div className="Montserrat add-new-book-title grey">ADD NEW BOOK</div>
       <form onSubmit={handleSubmit} className="addBook">
         <input
           type="text"
           placeholder="Add Book"
+          className="add-book-placeholder Montserrat grey"
           value={title}
           onChange={handleChange}
         />
         <input
           type="text"
+          className="add-author-placeholder Montserrat grey"
           placeholder="Add Author"
           value={author}
           onChange={handleAuthorChange}
@@ -61,15 +65,16 @@ const AddBook = () => {
         <select
           value={category}
           onChange={handleCategoryChange}
+          className="category-placeholder Montserrat grey"
         >
-          <option value="">Select Category</option>
+          <option value="">Category</option>
           {categoriesSelection.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
           ))}
         </select>
-        <button type="submit">Add Book</button>
+        <button type="submit" className="add-book-button">Add Book</button>
       </form>
       <span>{message}</span>
     </>

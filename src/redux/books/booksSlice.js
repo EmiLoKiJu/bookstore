@@ -48,15 +48,6 @@ export const removeBookFromAPI = createAsyncThunk('books/removeBookFromAPI', asy
 const booksSlice = createSlice({
   name: 'books',
   initialState: { booksArr: [], isLoading: true },
-  reducers: {
-    addBook: (state, { payload }) => {
-      state.booksArr.push(payload);
-    },
-    removeBook: (state, { payload }) => {
-      const index = state.booksArr.findIndex((book) => book.id === payload);
-      if (index !== -1) state.booksArr.splice(index, 1);
-    },
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getBooks.pending, (state) => {
