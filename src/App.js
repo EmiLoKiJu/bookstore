@@ -4,28 +4,39 @@ import {
   Route,
   Outlet,
 } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import './App.css';
 import Categories from './components/categories';
 import BooksList from './components/bookslist';
 import AddBook from './components/addbook';
+import { getBooks } from './redux/books/booksSlice';
+import userIcon from './img/userIcon.png';
 
 function Layout() {
   return (
     <div className="body">
       <div className="dflex spacebetween navcont">
-        <h1>Bookstore</h1>
-        <div className="dflex mr10">
-          <h2 className="h2-class"><a href=".">Books</a></h2>
-          <h2 className="h2-class"><a href="./categories">Author</a></h2>
+        <div className="dflex">
+          <h1 className="Montserrat">Bookstore CMS</h1>
+          <h2 className="navbar-element Montserrat dflex"><a href=".">Books</a></h2>
+          <h2 className="navbar-element Montserrat dflex"><a href="./categories">Author</a></h2>
         </div>
+        <img src={userIcon} alt="user" className="user-icon" />
       </div>
-      <div><Outlet /></div>
+      <span className="spanline dflex" />
+      <div className="not-navbar"><Outlet /></div>
     </div>
   );
 }
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>

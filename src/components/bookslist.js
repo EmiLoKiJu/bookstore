@@ -1,14 +1,23 @@
 import { useSelector } from 'react-redux';
-// import store from '../redux/store';
 import Book from './book';
 
 const BooksList = () => {
-  const books = useSelector((store) => store.books);
+  const books = useSelector((store) => store.books.booksArr);
+  const { isLoading } = useSelector((store) => store.books);
+
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+
   return (
     <ul>
       {books.map((book) => (
         <Book
-          key={book.id}
+          key={book.item_id}
           book={book}
         />
       ))}
